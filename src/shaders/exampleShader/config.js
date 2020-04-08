@@ -15,7 +15,9 @@ const config = {
     }
   },
   defines: {
-    PI: Math.PI
+    // This makes PI an accessible variable in our frag and vert shaders
+    PI: Math.PI,
+    HALF_PI: Math.PI * 0.5
   },
   wireframe: false,
   vertexShader: vert,

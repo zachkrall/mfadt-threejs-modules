@@ -8,11 +8,11 @@ import Stats from 'three/examples/jsm/libs/stats.module'
 import * as dat from 'dat.gui'
 
 // COMPONENTS
-import Camera from './components/Camera'
-import Renderer from './components/Renderer'
+import Camera from 'Components/Camera'
+import Renderer from 'Components/Renderer'
 
 // OBJECTS
-import Ball from './objects/Ball'
+import Ball from 'Objects/Ball'
 
 /* -------- SET UP -------- */
 const container = document.querySelector('#app')

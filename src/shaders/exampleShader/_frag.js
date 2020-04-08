@@ -1,4 +1,4 @@
-import { noise } from './functions/noise'
+import { noise } from '../functions/noise'
 
 let frag = `
   uniform vec2 u_resolution;

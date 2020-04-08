@@ -21,10 +21,19 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+      '~': path.resolve(__dirname, 'src'),
+      'Components': path.resolve(__dirname, 'src', 'components'),
+      'Objects': path.resolve(__dirname, 'src', 'objects'),
+      'Shaders$': path.resolve(__dirname, 'src', 'shaders', 'main.js')
+    }
+  },
   node: {
     fs: 'empty'
   },
   devServer: {
+    port: process.env.PORT || 8080, // it's possible to specific which port you'd prefer to use
     writeToDisk: true,
     contentBase: path.resolve(__dirname, 'dist'),
     hot: true

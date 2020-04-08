@@ -1,6 +1,6 @@
-import * as THREE from 'three'
+import { WebGLRenderer } from 'three'
 
-export default class Renderer extends THREE.WebGLRenderer {
+export default class Renderer extends WebGLRenderer {
   constructor({ antialias, alpha, clearColor = 0xf5f5f5 } = {}) {
     super({
       antialias: antialias,

@@ -1,12 +1,12 @@
-import * as THREE from 'three'
-import { ExampleShader } from '../shader/shaders'
+import { Mesh, SphereBufferGeometry } from 'three'
+import { ExampleShader } from 'Shaders'
 
-export default class Ball extends THREE.Mesh {
+export default class Ball extends Mesh {
   constructor({ size = 10, resolution = 50 } = {}) {
     // bind our ExampleShader to a variable
     let shader = ExampleShader
 
-    let geo = new THREE.SphereBufferGeometry(size, resolution, resolution)
+    let geo = new SphereBufferGeometry(size, resolution, resolution)
     // let mat = new THREE.MeshNormalMaterial()
     let mat = shader
 
