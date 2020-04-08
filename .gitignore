@@ -1,3 +1,4 @@
 node_modules/
 *.hot-update.json
 *.hot-update.js
+.DS_Store
