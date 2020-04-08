@@ -1,15 +1,14 @@
-import { WebGLRenderer } from 'three'
+import * as THREE from 'three'
 
-export const Renderer = ({ antialias, alpha } = {}) => {
-  let r = new WebGLRenderer({
-    antialias: antialias,
-    alpha: alpha
-  })
+export default class Renderer extends THREE.WebGLRenderer {
+  constructor({ antialias, alpha, clearColor = 0xf5f5f5 } = {}) {
+    super({
+      antialias: antialias,
+      alpha: alpha
+    })
 
-  r.setSize(window.innerWidth, window.innerHeight)
-  r.setClearColor(0xf5f5f5, 1.0)
-  r.setClearAlpha(1.0)
-  r.gammaOutput = true
-
-  return r
+    this.setSize(window.innerWidth, window.innerHeight)
+    this.setClearColor(clearColor, 1.0)
+    this.setClearAlpha(1.0)
+  }
 }

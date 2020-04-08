@@ -1,3 +1,32 @@
+/*
+
+  NOISE
+  ----------------------------------------------
+  Generates 3D Noise from 2D Coordinates
+
+  EXAMPLE:
+
+    noise(st, 4.0, 0.1)
+
+
+  PARAMETERS:
+
+    vec2 st
+    - x and y coordinates
+
+    float scale
+    - size of noise field
+
+    float offset
+    - speed that noise moves
+
+
+  RETURNS:
+
+    vec3 with same values across R G B channels
+
+*/
+
 import { permute } from './permute'
 import { taylorInvSqrt } from './taylorInvSqrt'
 

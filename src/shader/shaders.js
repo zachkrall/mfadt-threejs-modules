@@ -1,8 +1,8 @@
-import { Vector2 } from 'three'
+import { Vector2, ShaderMaterial } from 'three'
 import { vert } from './_vert'
 import { frag } from './_frag'
 
-const Shader = {
+const config = {
   uniforms: {
     u_time: {
       value: 0.0
@@ -22,4 +22,6 @@ const Shader = {
   fragmentShader: frag
 }
 
-export { Shader }
+const ExampleShader = new ShaderMaterial(config)
+
+export { ExampleShader }

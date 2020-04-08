@@ -26,7 +26,7 @@ module.exports = {
   },
   devServer: {
     writeToDisk: true,
-    contentBase: path.resolve(__dirname),
+    contentBase: path.resolve(__dirname, 'dist'),
     hot: true
   }
 }
