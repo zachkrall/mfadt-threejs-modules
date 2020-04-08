@@ -1,5 +1,6 @@
 import { ExampleShader } from './exampleShader/config'
 import { EffectShader } from './effectShader/config'
+import { RGBShift } from './rgbShift/config'
 
 /*
 
@@ -8,4 +9,4 @@ import { EffectShader } from './effectShader/config'
 
 */
 
-export { ExampleShader, EffectShader }
+export { ExampleShader, EffectShader, RGBShift }

@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "9cb9cba4b7d241a240f5";
+/******/ 	var hotCurrentHash = "fef8ad4898cd6cfc6bec";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -4912,11 +4912,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!*****************************!*\
   !*** ./src/shaders/main.js ***!
   \*****************************/
-/*! exports provided: ExampleShader, EffectShader */
+/*! exports provided: ExampleShader, EffectShader, RGBShift */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _exampleShader_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./exampleShader/config */ \"./src/shaders/exampleShader/config.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"ExampleShader\", function() { return _exampleShader_config__WEBPACK_IMPORTED_MODULE_0__[\"ExampleShader\"]; });\n\n/* harmony import */ var _effectShader_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./effectShader/config */ \"./src/shaders/effectShader/config.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"EffectShader\", function() { return _effectShader_config__WEBPACK_IMPORTED_MODULE_1__[\"EffectShader\"]; });\n\n\n\n/*\n\n  This file allows for a shared reference point\n  import { <SHADER NAME> } from 'Shaders'\n\n*/\n\n\n\n//# sourceURL=webpack:///./src/shaders/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _exampleShader_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./exampleShader/config */ \"./src/shaders/exampleShader/config.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"ExampleShader\", function() { return _exampleShader_config__WEBPACK_IMPORTED_MODULE_0__[\"ExampleShader\"]; });\n\n/* harmony import */ var _effectShader_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./effectShader/config */ \"./src/shaders/effectShader/config.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"EffectShader\", function() { return _effectShader_config__WEBPACK_IMPORTED_MODULE_1__[\"EffectShader\"]; });\n\n/* harmony import */ var _rgbShift_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rgbShift/config */ \"./src/shaders/rgbShift/config.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"RGBShift\", function() { return _rgbShift_config__WEBPACK_IMPORTED_MODULE_2__[\"RGBShift\"]; });\n\n\n\n\n/*\n\n  This file allows for a shared reference point\n  import { <SHADER NAME> } from 'Shaders'\n\n*/\n\n\n\n//# sourceURL=webpack:///./src/shaders/main.js?");
+
+/***/ }),
+
+/***/ "./src/shaders/rgbShift/config.js":
+/*!****************************************!*\
+  !*** ./src/shaders/rgbShift/config.js ***!
+  \****************************************/
+/*! exports provided: RGBShift */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RGBShift\", function() { return RGBShift; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.module.js\");\n\nvar config = {\n  uniforms: {\n    tDiffuse: {\n      value: null\n    },\n    amount: {\n      value: 0.005\n    },\n    angle: {\n      value: 0.0\n    }\n  },\n  vertexShader: ['varying vec2 vUv;', 'void main() {', '\tvUv = uv;', '\tgl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );', '}'].join('\\n'),\n  fragmentShader: ['uniform sampler2D tDiffuse;', 'uniform float amount;', 'uniform float angle;', 'varying vec2 vUv;', 'void main() {', '\tvec2 offset = amount * vec2( cos(angle), sin(angle));', '\tvec4 cr = texture2D(tDiffuse, vUv + offset);', '\tvec4 cga = texture2D(tDiffuse, vUv);', '\tvec4 cb = texture2D(tDiffuse, vUv - offset);', '\tgl_FragColor = vec4(cr.r, cga.g, cb.b, cga.a);', '}'].join('\\n')\n};\nvar RGBShift = new three__WEBPACK_IMPORTED_MODULE_0__[\"ShaderMaterial\"](config);\n\n\n//# sourceURL=webpack:///./src/shaders/rgbShift/config.js?");
 
 /***/ }),
 
