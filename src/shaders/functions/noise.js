@@ -27,8 +27,8 @@
 
 */
 
-import { permute } from './permute'
-import { taylorInvSqrt } from './taylorInvSqrt'
+import { permute } from 'Functions/permute'
+import { taylorInvSqrt } from 'Functions/taylorInvSqrt'
 
 let noise = `
   //	Simplex 3D Noise

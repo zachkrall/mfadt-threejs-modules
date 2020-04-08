@@ -26,7 +26,8 @@ module.exports = {
       '~': path.resolve(__dirname, 'src'),
       'Components': path.resolve(__dirname, 'src', 'components'),
       'Objects': path.resolve(__dirname, 'src', 'objects'),
-      'Shaders$': path.resolve(__dirname, 'src', 'shaders', 'main.js')
+      'Shaders$': path.resolve(__dirname, 'src', 'shaders', 'main.js'),
+      'Functions': path.resolve(__dirname, 'src', 'shaders', 'functions')
     }
   },
   node: {
