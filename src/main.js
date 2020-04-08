@@ -14,6 +14,13 @@ import Renderer from 'Components/Renderer'
 // OBJECTS
 import Ball from 'Objects/Ball'
 
+// EFFECTS
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer'
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass'
+
+import { EffectShader } from 'Shaders'
+
 /* -------- SET UP -------- */
 const container = document.querySelector('#app')
 
@@ -30,6 +37,11 @@ global.renderer = new Renderer({
 global.scene = new THREE.Scene()
 
 let time = 0
+
+/* -------- POST PROCESSING -------- */
+// const composer = new EffectComposer(renderer)
+// const renderPass = new RenderPass(scene, camera)
+// const shaderPass = new ShaderPass(EffectShader)
 
 /* -------- SHARED PARAMETERS -------- */
 const params = {
@@ -63,31 +75,42 @@ let ball = new Ball({
 
 /* -------- START -------- */
 const init = () => {
-  // add renderer to container
+  // --- add renderer to container ---
   container.appendChild(renderer.domElement)
-  // add stats to container
+
+  // --- add stats to container---
   container.appendChild(stats.dom)
 
-  // add objects to scene
+  // --- add objects to scene ---
   scene.add(ball)
+
+  // --- set up composer ---
+  // composer.addPass(renderPass)
+  // composer.addPass(shaderPass)
 }
 init()
 
 /* -------- ANIMATION LOOP -------- */
 const loop = () => {
-  // anything we want to change during draw loop happens here
-
+  // update uniforms for ball material
   ball.update({
     u_amp: params.noiseStrength,
     u_time: time
   })
 
+  // move camera
   camera.position.set(0, 0, 100 - params.cameraZoom)
 
-  // always keep this at bottom
+  // update shaderPass uniforms
+  // shaderPass.uniforms['u_time'].value += 0.1
+
+  // --- UPDATE TIME & STATS --
   time += 0.1
   stats.update()
+
+  // --- RENDER --
   renderer.render(scene, camera)
+  // composer.render()
   requestAnimationFrame(loop)
 }
 loop()

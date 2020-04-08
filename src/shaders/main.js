@@ -1,4 +1,5 @@
 import { ExampleShader } from './exampleShader/config'
+import { EffectShader } from './effectShader/config'
 
 /*
 
@@ -7,4 +8,4 @@ import { ExampleShader } from './exampleShader/config'
 
 */
 
-export { ExampleShader }
+export { ExampleShader, EffectShader }
